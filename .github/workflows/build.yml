@@ -28,10 +28,10 @@ jobs:
         env:
           ESLINT_USE_FLAT_CONFIG: false
 
-      - name: Build Docker image
-        uses: philips-software/docker-ci-scripts@v4.5.0
+      - name: Build docker image
+        uses: docker/build-push-action@v6
         with:
-          dockerfile: ./Dockerfile
+          push: false
           tags: maeve2003/webapp:latest
 
       # - name: Login to Docker Hub
