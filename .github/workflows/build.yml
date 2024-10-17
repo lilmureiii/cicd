@@ -23,9 +23,6 @@ jobs:
       - name: Run linter
         run: yarn lint
 
-      - name: tests
-        run: yarn test
-
   docker-build:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +49,7 @@ jobs:
 
       - name: container starten
         run: |
-          docker run -d -p 3000:3000 --name webapp ${ secrets.DOCKERHUB_USERNAME }/webapp:latest
+          docker run -d -p 3000:3000 --name webapp ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
       - name: Run tests in container
         run: |
           docker exec webapp yarn test  
