@@ -23,11 +23,6 @@ jobs:
       - name: Run linter
         run: yarn lint
 
-      - name: start server
-        run: |
-          yarn start & 
-          sleep 10
-
       - name: tests
         run: yarn test
 
