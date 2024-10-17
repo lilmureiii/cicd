@@ -49,3 +49,15 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+
+      - name: container starten
+        run: |
+          docker run -d -p 3000:3000 --name webapp ${ secrets.DOCKERHUB_USERNAME }/webapp:latest
+      - name: Run tests in container
+        run: |
+          docker exec webapp yarn test  
+
+      - name: container stoppen
+        run: |
+          docker stop webapp
+          docker rm webapp 
