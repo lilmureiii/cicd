@@ -26,7 +26,7 @@ jobs:
       - name: start server
         run: |
           yarn start & 
-          sleep 5
+          sleep 10
 
       - name: tests
         run: yarn test
