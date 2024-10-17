@@ -21,6 +21,9 @@ jobs:
 
       - name: run linter
         run: yarn lint
+        
+      - name: install mocha
+        run: yarn add mocha
 
   docker-build:
     runs-on: ubuntu-latest
